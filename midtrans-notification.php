@@ -7,11 +7,7 @@ date_default_timezone_set('Asia/Jakarta');
 /* =========================
    MIDTRANS CONFIG
 ========================= */
-
-// ambil dari environment
-$serverKey = getenv('MIDTRANS_SERVER_KEY');
-
-\Midtrans\Config::$serverKey = $serverKey;
+\Midtrans\Config::$serverKey = "gati punya kamu di midtrans";
 \Midtrans\Config::$isProduction = false;
 
 /* =========================

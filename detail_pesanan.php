@@ -137,68 +137,77 @@ $list_kursi = implode(", ", $seats);
 
 <main class="max-w-md mx-auto px-4 py-6">
 
-    <!-- ID 'myTicket' ditambahkan untuk target download -->
-    <div id="myTicket" class="ticket-wrapper">
-        <div class="bg-[#001F3F] p-4 text-center">
-            <p class="text-[#d4af37] text-[10px] font-black tracking-[0.3em] uppercase">Mahayana </p>
-        </div>
+<!-- ID 'myTicket' ditambahkan untuk target download -->
+<div id="myTicket" class="ticket-wrapper relative bg-white overflow-hidden">
+  
 
-        <div class="p-6 pb-20"> 
-            <div class="flex justify-between items-center mb-8 px-2">
-                <div>
-                    <p class="text-gray-400 text-[10px] uppercase font-bold tracking-wider">Origin</p>
-                    <p class="text-xl font-black text-[#001F3F] uppercase"><?= $data['departure_city'] ?></p>
-                </div>
-                <div class="flex flex-col items-center opacity-20">
-                    <i class="fa-solid fa-bus text-sm"></i>
-                    <div class="w-16 border-t-2 border-[#001F3F] my-1"></div>
-                </div>
-                <div class="text-right">
-                    <p class="text-gray-400 text-[10px] uppercase font-bold tracking-wider">Destination</p>
-                    <p class="text-xl font-black text-[#001F3F] uppercase"><?= $data['arrival_city'] ?></p>
-                </div>
+    <!-- Detail Tiket -->
+    <div class="p-6 pb-6"> 
+        <div class="flex justify-between items-center mb-8 px-2">
+            <div>
+                <p class="text-gray-400 text-[10px] uppercase font-bold tracking-wider">Origin</p>
+                <p class="text-xl font-black text-[#001F3F] uppercase"><?= $data['departure_city'] ?></p>
             </div>
-
-            <div class="grid grid-cols-2 gap-y-6 border-t border-gray-50 pt-6">
-                <div class="col-span-2">
-                    <p class="text-gray-400 text-[9px] uppercase font-bold">Passenger Name</p>
-                    <p class="text-sm font-bold text-slate-800 uppercase"><?= htmlspecialchars($data['fullname']) ?></p>
-                </div>
-                <div>
-                    <p class="text-gray-400 text-[9px] uppercase font-bold">Travel Date</p>
-                    <p class="text-sm font-bold text-slate-800"><?= $tanggal ?></p>
-                </div>
-                <div class="text-right">
-                    <p class="text-gray-400 text-[9px] uppercase font-bold">Departure Time</p>
-                    <p class="text-sm font-bold text-slate-800"><?= date('H:i', strtotime($data['departure_time'])) ?> WIB</p>
-                </div>
-                <div>
-                    <p class="text-gray-400 text-[9px] uppercase font-bold">Bus Name</p>
-                    <p class="text-xs font-bold text-slate-600"><?= htmlspecialchars($data['bus_name']) ?></p>
-                </div>
-                <div class="text-right">
-                    <p class="text-gray-400 text-[9px] uppercase font-bold">Seat Number</p>
-                    <p class="text-sm font-bold text-[#001F3F] bg-amber-50 px-3 py-1 rounded-lg border border-amber-100 inline-block">
-                        <?= $list_kursi ?>
-                    </p>
-                </div>
+            <div class="flex flex-col items-center opacity-20">
+                <i class="fa-solid fa-bus text-sm"></i>
+                <div class="w-16 border-t-2 border-[#001F3F] my-1"></div>
+            </div>
+            <div class="text-right">
+                <p class="text-gray-400 text-[10px] uppercase font-bold tracking-wider">Destination</p>
+                <p class="text-xl font-black text-[#001F3F] uppercase"><?= $data['arrival_city'] ?></p>
             </div>
         </div>
 
-        <div class="cut-out cut-left"></div>
-        <div class="cut-out cut-right"></div>
-        <div class="perforation"></div>
-
-        <div class="p-8 pt-12 bg-slate-50/50 flex flex-col items-center border-t border-gray-100">
-            <div class="bg-white p-3 rounded-2xl shadow-sm border border-slate-100 mb-4">
-                <!-- Gunakan crossOrigin jika gambar dari server luar agar tidak kena taint canvas -->
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<?= $data['booking_code'] ?>" 
-                     alt="QR Code" class="w-32 h-32" crossorigin="anonymous">
+        <div class="grid grid-cols-2 gap-y-6 border-t border-gray-50 pt-6">
+            <div class="col-span-2">
+                <p class="text-gray-400 text-[9px] uppercase font-bold">Passenger Name</p>
+                <p class="text-sm font-bold text-slate-800 uppercase"><?= htmlspecialchars($data['fullname']) ?></p>
             </div>
-            <p class="font-mono text-lg font-black text-[#001F3F] tracking-[0.2em] uppercase"><?= $data['booking_code'] ?></p>
-            <p class="text-[9px] text-slate-400 italic mt-2 uppercase tracking-widest text-center">Tunjukkan QR Code ini kepada petugas<br>saat keberangkatan</p>
+            <div>
+                <p class="text-gray-400 text-[9px] uppercase font-bold">Travel Date</p>
+                <p class="text-sm font-bold text-slate-800"><?= $tanggal ?></p>
+            </div>
+            <div class="text-right">
+                <p class="text-gray-400 text-[9px] uppercase font-bold">Departure Time</p>
+                <p class="text-sm font-bold text-slate-800"><?= date('H:i', strtotime($data['departure_time'])) ?> WIB</p>
+            </div>
+            <div>
+                <p class="text-gray-400 text-[9px] uppercase font-bold">Bus Name</p>
+                <p class="text-xs font-bold text-slate-600"><?= htmlspecialchars($data['bus_name']) ?></p>
+            </div>
+            <div class="text-right">
+                <p class="text-gray-400 text-[9px] uppercase font-bold">Seat Number</p>
+                <p class="text-sm font-bold text-[#001F3F] bg-amber-50 px-3 py-1 rounded-lg border border-amber-100 inline-block">
+                    <?= $list_kursi ?>
+                </p>
+            </div>
         </div>
     </div>
+
+    <!-- AREA COBEKAN (Garis Putus-putus) -->
+    <div class="relative w-full flex items-center bg-slate-50/50">
+        <!-- Potongan setengah lingkaran Kiri -->
+        <div class="absolute -left-3 w-6 h-6 bg-gray-200 rounded-full"></div>
+        
+        <!-- Garis Putus-putus -->
+        <div class="w-full border-t-2 border-dashed border-gray-300 mx-4"></div>
+        
+        <!-- Potongan setengah lingkaran Kanan -->
+        <div class="absolute -right-3 w-6 h-6 bg-gray-200 rounded-full"></div>
+    </div>
+
+    <!-- AREA BARCODE (QR Code) -->
+    <!-- pt-12 dikurangi jadi pt-8 agar lebih padat dan rapi -->
+    <div class="p-8 pt-8 bg-slate-50/50 flex flex-col items-center">
+        <div class="bg-white p-3 rounded-2xl shadow-sm border border-slate-100 mb-4 z-10 relative">
+            <!-- Gunakan crossOrigin jika gambar dari server luar agar tidak kena taint canvas saat di-download -->
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<?= $data['booking_code'] ?>" 
+                 alt="QR Code" class="w-32 h-32" crossorigin="anonymous">
+        </div>
+        <p class="font-mono text-lg font-black text-[#001F3F] tracking-[0.2em] uppercase"><?= $data['booking_code'] ?></p>
+        <p class="text-[9px] text-slate-400 italic mt-2 uppercase tracking-widest text-center">Tunjukkan QR Code ini kepada petugas<br>saat keberangkatan</p>
+    </div>
+</div>
 
     <!-- TOMBOL AKSI -->
     <div class="no-print mt-8 px-2 space-y-6 text-center">

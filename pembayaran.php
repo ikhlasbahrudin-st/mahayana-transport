@@ -10,21 +10,12 @@ date_default_timezone_set('Asia/Jakarta');
 /* =========================
    MIDTRANS CONFIG
 ========================= */
-
-// ambil dari environment (tanpa dotenv)
-$serverKey = getenv('MIDTRANS_SERVER_KEY');
-$clientKey = getenv('MIDTRANS_CLIENT_KEY');
-
-if (!$serverKey || !$clientKey) {
-    die("Midtrans key belum diset");
-}
-
-\Midtrans\Config::$serverKey = $serverKey;
+\Midtrans\Config::$serverKey = "ganti server key kamu";
 \Midtrans\Config::$isProduction = false;
 \Midtrans\Config::$isSanitized = true;
 \Midtrans\Config::$is3ds = true;
 
-$client_key = $clientKey;
+$client_key = "ganti client kamu";
 
 /* =========================
    REALTIME STATUS FUNCTION
