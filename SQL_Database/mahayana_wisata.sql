@@ -282,7 +282,7 @@ CREATE TABLE `schedules` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `schedules`
+-- ini adalah Dumping data untuk tabel `schedules`
 --
 
 INSERT INTO `schedules` (`id`, `bus_id`, `route_id`, `departure_time`, `arrival_time`, `date`, `is_daily`) VALUES
